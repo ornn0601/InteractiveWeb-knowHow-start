@@ -1,5 +1,20 @@
 # 01. 마우스를 활용한 인터렉티브  
 
+## 참고  
+- 브라우저 내에서 마우스 위치값을 브라우저 왼쪽 상단이 아닌 브라우저 가운데가 중심이 되게 바꿔주는 게 핵심입니다.  
+예를들어 브라우저 width가 900일 경우 마우스 위치값이 0부터 900 까지 찍힐텐데, 거기서 브라우저 width / 2 를 해서 빼주는 것.  
+
+```
+x = e.clientX (마우스x) - window.innerWidth / 2 (화면 사이즈 /2)
+```
+
+이렇게 되면 0~900 이 아닌 -450 ~ 450 까지 찍히게 됩니다.
+translate() 외에도 scale(), rotate() 등 다양하게 테스트 해보세요.
+
+```
+transform = "rotate(" + 변하는 값 + "deg)"
+```  
+ 
 ## 1. mouse move 값 활용  
 - 마우스 위치에 따라 오브젝트 제어  
 - e.clientX, e.clientY  
@@ -65,7 +80,7 @@ function loop() {
 ```js
 window.onload = function() {
   cursor_item = document.getElementsByClassNa('cursor_item')[0];
-  
+
   window.addEventListener('click', mouseFunc, false);
   function mouseFunc(e) {
     x = e.clientX;
